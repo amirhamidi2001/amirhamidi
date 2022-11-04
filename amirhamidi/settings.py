@@ -31,7 +31,7 @@ DEBUG = True
 # X-XSS-Protection
 SECURE_BROWSER_XSS_FILTER = True
 
-ALLOWED_HOSTS = ['amir-hamidi.herokuapp.com']
+ALLOWED_HOSTS = ['amirhamidi.herokuapp.com']
 
 
 # Application definition
