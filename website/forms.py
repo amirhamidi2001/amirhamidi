@@ -3,8 +3,10 @@ from .models import Contact
 
 
 class ContactForm(forms.ModelForm):
-    """This class is for processing the contact form"""
+    """
+    This class is for processing the contact form
+    """
 
     class Meta:
         model = Contact
-        fields = '__all__'
+        fields = "__all__"

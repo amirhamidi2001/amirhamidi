@@ -29,6 +29,8 @@ class Migration(migrations.Migration):
                 ("created_date", models.DateTimeField(auto_now_add=True)),
                 ("updated_date", models.DateTimeField(auto_now=True)),
             ],
-            options={"ordering": ["-created_date"],},
+            options={
+                "ordering": ["-created_date"],
+            },
         ),
     ]
