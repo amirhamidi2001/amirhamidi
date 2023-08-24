@@ -35,3 +35,5 @@ urlpatterns = [
         name="django.contrib.sitemaps.views.sitemap",
     ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = "website.views.custom_404"

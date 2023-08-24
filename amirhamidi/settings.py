@@ -25,12 +25,12 @@ SECRET_KEY = "django-insecure-hw4--2o3xz@%=wt73!1#4vx3fqd+qf+df1-ar3re&8m&j$#&y&
 # When deploying the project on Heroku, a new SECRET_KEY is created
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # X-XSS-Protection
 SECURE_BROWSER_XSS_FILTER = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
