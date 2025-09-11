@@ -14,7 +14,7 @@ from django.core.wsgi import get_wsgi_application
 
 # assuming your Django settings file is at '/home/myusername/mysite/mysite/settings.py'
 
-path = '/home/amirhamidi/amirhamidi'
+path = "/home/amirhamidi/amirhamidi"
 if path not in sys.path:
     sys.path.insert(0, path)
 
