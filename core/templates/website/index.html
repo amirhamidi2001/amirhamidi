@@ -3,10 +3,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Amir Hamidi | Programmer, Developer & Freelancer</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Amir Hamidi | Full-Stack Web Developer & Django Expert</title>
+    <meta name="title" content="Amir Hamidi | Programmer, Developer & Freelancer" />
+    <meta name="description" content="Amir Hamidi is a professional Full-Stack Web Developer specializing in Python, Django, and RESTful APIs. Building efficient, scalable web applications." />
+    <meta name="keywords" content="Amir Hamidi, Web Developer, Django Developer, Python Programmer, Freelance Developer, Full Stack Developer, Industrial Panel Software" />
+    <meta name="author" content="Amir Hamidi" />
+    <link rel="canonical" href="https://amirhamidi.pythonanywhere.com{{ request.path }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://amirhamidi.pythonanywhere.com/" />
+    <meta property="og:title" content="Amir Hamidi | Full-Stack Web Developer" />
+    <meta property="og:description" content="Turning ideas into dynamic, efficient web applications with Python and Django." />
+    <meta property="og:image" content="{% static 'assets/img/profile/profile-square.webp' %}" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://amirhamidi.pythonanywhere.com/" />
+    <meta property="twitter:title" content="Amir Hamidi | Full-Stack Web Developer" />
+    <meta property="twitter:description" content="Full-stack developer specializing in Django and high-performance web architecture." />
+    <meta property="twitter:image" content="{% static 'assets/img/profile/profile-square.webp' %}" />
 
     <!-- Favicons -->
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
@@ -15,7 +34,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Vendor CSS Files -->
     <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
@@ -26,6 +45,23 @@
 
     <!-- Main CSS File -->
     <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Amir Hamidi",
+        "url": "https://amirhamidi.pythonanywhere.com/",
+        "image": "https://amirhamidi.pythonanywhere.com{% static 'assets/img/profile/profile-square.webp' %}",
+        "jobTitle": "Full-Stack Web Developer",
+        "sameAs": [
+          "https://www.linkedin.com/in/amir-hamidi-18a815233/",
+          "https://github.com/Amirhamidi2001/",
+          "https://x.com/Amirhamidi2001/"
+        ]
+      }
+    </script>
   </head>
 
   <body class="index-page">
