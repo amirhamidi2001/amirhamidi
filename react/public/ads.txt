@@ -1,0 +1,4 @@
+# ads.txt — amirhamidi.vercel.app
+# این سایت تبلیغات نمایش نمی‌دهد و هیچ فروشندهٔ تبلیغاتی مجازی ندارد.
+# اگر بعداً AdSense یا شبکهٔ تبلیغاتی اضافه شد، خط واقعی آن را اینجا بنویسید، مثلاً:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

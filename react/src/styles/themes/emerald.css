@@ -1,0 +1,32 @@
+/* تم پیش‌فرض (پالت فعلی سایت). تنها محل تعریف رنگ‌ها. */
+:root,
+[data-theme="emerald"] {
+  /* پالت اصلی — عیناً از نسخهٔ قبلی */
+  --background: #000900;
+  --foreground: #eeffee;
+  --heading: #eeffee;
+  --accent: #6ee7b7;
+  --surface: #059669;
+  --contrast: #eeffee;
+
+  --nav-color: #eeffee;
+  --nav-hover: #059669;
+  --nav-mobile-background: #022c22;
+  --nav-dropdown-background: #051117;
+  --nav-dropdown-color: #eeffee;
+  --nav-dropdown-hover: #059669;
+
+  /* توکن‌های معنایی مکمل */
+  --on-accent: #000900; /* متن روی accent؛ کنتراست ۱۳٫۲۶ (قبلاً ۱٫۴۶) */
+  --surface-deep: #064e3b;
+  --on-surface: #eeffee;
+  --muted: color-mix(in srgb, var(--foreground) 72%, transparent);
+  --border: color-mix(in srgb, var(--foreground) 16%, transparent);
+  --ring: var(--accent);
+
+  --danger: #df1529;
+  --success: #059652;
+  --warning: #ffc107;
+
+  color-scheme: dark;
+}

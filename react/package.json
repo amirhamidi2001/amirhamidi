@@ -1,0 +1,36 @@
+{
+  "name": "amirhamidi-next",
+  "version": "1.0.0",
+  "private": true,
+  "description": "وب‌سایت شخصی و پورتفولیوی امیر حمیدی (Next.js، فارسی/RTL، Static)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check:images": "node scripts/check-images.mjs",
+    "check:rtl": "node scripts/check-rtl.mjs",
+    "check:tokens": "node scripts/check-tokens.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "lucide-react": "^1.73.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.6",
+    "prettier": "^3.10.1",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^6.0.3"
+  }
+}

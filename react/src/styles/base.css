@@ -1,0 +1,92 @@
+@layer base {
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  overflow-x: clip; /* جلوگیری از اسکرول افقی ناشی از انیمیشن‌های ورودی */
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.9;
+  letter-spacing: 0; /* حروف فارسی به‌هم‌چسبیده‌اند */
+  font-feature-settings: "kern", "liga";
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+::selection { background: color-mix(in srgb, var(--accent) 35%, transparent); }
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+a { color: inherit; text-decoration: none; }
+em { font-style: normal; font-weight: 500; } /* فونت فارسی ایتالیک ندارد */
+
+}
+
+/* حرکت: ظاهر شدن هنگام اسکرول (Reveal) */
+.reveal {
+  transition:
+    opacity var(--duration-base) var(--ease),
+    transform var(--duration-base) var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-pending {
+  opacity: 0;
+  transform: translate(calc(var(--reveal-x, 0rem) * var(--dir-sign)), var(--reveal-y, 1.25rem));
+}
+
+/* نوار پیشرفت: رشد با اسکرول (فقط مرورگرهای پشتیبان؛ بدون JS) */
+.progress-fill { transform-origin: left center; }
+[dir="rtl"] .progress-fill { transform-origin: right center; }
+@keyframes progress-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .progress-fill {
+      animation: progress-grow linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 90%;
+    }
+  }
+  .float-slow { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .caret { animation: blink 1s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .reveal-pending { opacity: 1; transform: none; }
+}
+
+/* اسکرول‌اسنپ توصیه‌نامه‌ها */
+.snap-row {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar { display: none; }
+.snap-row > * { flex: 0 0 100%; scroll-snap-align: start; }
+
+/* درخشش ملایم پس‌زمینهٔ Hero (فقط از توکن‌ها) */
+.hero-glow {
+  background:
+    radial-gradient(60% 55% at 78% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(45% 40% at 10% 90%, color-mix(in srgb, var(--surface) 22%, transparent), transparent 70%);
+}

@@ -1,0 +1,11 @@
+/* توکن‌های غیررنگ */
+:root {
+  --duration-fast: 200ms;
+  --duration-base: 600ms;
+  --ease: ease-in-out;
+  --dir-sign: -1; /* در RTL مقدار 1 می‌شود (پایین) */
+  --header-height: 4.25rem;
+}
+[dir="rtl"] {
+  --dir-sign: 1;
+}
