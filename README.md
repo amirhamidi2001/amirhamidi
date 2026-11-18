@@ -1,159 +1,150 @@
-# Amir Hamidi — Portfolio Website
+# Amir Hamidi — Portfolio
 
-A modern, fully responsive personal portfolio website built with **Django**. It showcases my work as a Full‑Stack Web Developer, my skills, projects, resume, services, and a contact form – all in a fast, secure, and SEO‑friendly package.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Django 5.2](https://img.shields.io/badge/Django-5.2-092E20?logo=django&logoColor=white)](backend/README.md)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)](frontend/README.md)
+[![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](frontend/README.md)
 
-🌐 **Live site:** [https://amirhamidi.pythonanywhere.com/](https://amirhamidi.pythonanywhere.com/)
+The personal developer portfolio of **Amir Hamidi**, Full-Stack Web Developer, built twice: once as a server-rendered **Django** website and once as a modern **Next.js** website. Both present the same portfolio (profile, skills, resume, services, projects and contact page), and each one is a complete, independently deployed project.
 
----
+## Live Demos
 
-## ✨ Features
+| Implementation | Stack | Live site |
+| --- | --- | --- |
+| **Django** (`backend/`) | Python, Django, Bootstrap, SQLite | <https://amirhamidi.pythonanywhere.com/> |
+| **Next.js** (`frontend/`) | Next.js 16, React 19, TypeScript, Tailwind CSS 4 | <https://amirhamidi.vercel.app/> |
 
-- **Dynamic content** – Pages are rendered via Django templates with reusable components.
-- **Portfolio & project showcase** – Filterable gallery using Isotope & ImagesLoaded.
-- **Resume & services** – Structured sections with clean typography.
-- **Contact form** – PHP‑Email‑Form integration ready (easily adaptable to Django’s email backend).
-- **SEO ready** – Meta tags, Open Graph, Twitter Cards, and JSON‑LD structured data (Schema.org).
-- **Sitemap & robots.txt** – Automatic sitemaps via Django’s sitemaps framework and `django-robots`.
-- **Performance & security** –  
-  - Static files optimised with `collectstatic`.  
-  - Security headers: HSTS, secure cookies, X‑Frame‑Options, etc.  
-  - Environment variables for sensitive settings.
-- **Mobile‑first design** – Bootstrap 5 + custom CSS/JS, AOS animations, Swiper carousel, and Glightbox.
+## Two Independent Implementations
 
----
+The repository is **not** a typical backend-plus-frontend application. The two folders are separate websites with their own codebases, dependencies and deployments. They do not call each other, share a database, or share any code.
 
-## 🛠️ Tech Stack
+| | `backend/` — Django | `frontend/` — Next.js |
+| --- | --- | --- |
+| Approach | Server-rendered HTML templates | Statically prerendered React (App Router) |
+| Language | Python 3 | TypeScript |
+| UI language | English | Persian (RTL) |
+| Styling | Bootstrap 5 template (FolioOne) | Tailwind CSS 4 with design tokens |
+| Content source | Written in templates | Typed data modules (`src/data/`) |
+| Data storage | SQLite (contact form submissions) | None |
+| Contact form | Saves messages to the database, managed in Django admin | Opens the visitor's email client (`mailto:`) |
+| Hosting | PythonAnywhere | Vercel |
+| Documentation | [`backend/README.md`](backend/README.md) | [`frontend/README.md`](frontend/README.md) |
 
-| Area            | Technologies                                                                 |
-|-----------------|------------------------------------------------------------------------------|
-| Backend         | Python 3.12, Django 5.2, SQLite (dev) / PostgreSQL (production recommended) |
-| Frontend        | Bootstrap 5, AOS, Swiper, Glightbox, Isotope, Typed.js, PureCounter          |
-| Deployment      | PythonAnywhere, Gunicorn / WSGI                                              |
-| Security        | python‑decouple, HTTPS, HSTS, secure cookies                                 |
-| Others          | django‑robots, django‑sitemaps, WHITENOISE (for static files in production)  |
+## Technology Stack
 
----
+| Layer | Django implementation | Next.js implementation |
+| --- | --- | --- |
+| Framework | Django 5.2 | Next.js 16 (App Router), React 19 |
+| Language | Python | TypeScript 6 |
+| Styling | Bootstrap 5.3, custom CSS | Tailwind CSS 4 |
+| Database | SQLite | — |
+| Notable libraries | django-robots, python-decouple, AOS, Swiper, Isotope, GLightbox, Typed.js | lucide-react |
+| Testing and quality | flake8 configuration | Playwright, axe-core, ESLint, project check scripts |
+| Deployment | PythonAnywhere (WSGI) | Vercel |
 
-## 📂 Project Structure
+Exact versions are listed in each project's README.
 
+## Repository Structure
+
+```text
+amirhamidi/
+├── README.md                  # This file
+├── LICENSE                    # MIT License
+│
+├── backend/                   # Django implementation
+│   ├── README.md
+│   ├── manage.py
+│   ├── requirements.txt
+│   ├── core/                  # Project settings, root URLs, WSGI/ASGI
+│   ├── website/               # Application: views, models, forms, admin, sitemap
+│   ├── templates/website/     # HTML templates
+│   ├── static/assets/         # CSS, JS, vendor libraries, images
+│   └── media/                 # Media files (resume PDF)
+│
+└── frontend/                  # Next.js implementation
+    ├── README.md
+    ├── package.json
+    ├── next.config.ts
+    ├── src/
+    │   ├── app/               # App Router routes, layout, sitemap, robots
+    │   ├── components/        # UI, layout, page sections, motion, SEO
+    │   ├── config/            # Site settings, security headers
+    │   ├── data/              # Typed content modules
+    │   ├── lib/               # Helpers (fonts, images, SEO)
+    │   ├── styles/            # Theme and design tokens
+    │   └── types/             # Content types
+    ├── public/                # Fonts, images, downloadable files
+    ├── scripts/               # Project check scripts
+    └── tests/e2e/             # Playwright tests
 ```
-Amirhamidi/
-├── core/                   # Django project settings & main URLs
-│   ├── settings.py         # Main settings (use .env for secrets)
-│   ├── urls.py
-│   └── wsgi.py
-├── website/                # Main Django app
-│   ├── models.py           # (If any – e.g. contact messages)
-│   ├── views.py
-│   └── urls.py
-├── templates/              # HTML templates
-├── static/                 # Static assets (CSS, JS, images, vendor)
-│   └── assets/
-│       ├── css/main.css
-│       ├── js/main.js
-│       ├── img/            # Profile, portfolio, favicons
-│       └── vendor/         # All external libraries (Bootstrap, AOS, etc.)
-├── media/                  # User‑uploaded files (if any)
-├── db.sqlite3              # Default development database
-├── manage.py
-├── requirements.txt        # Python dependencies
-├── .env                    # Environment variables (not in repo)
-└── README.md
-```
 
----
+## The Django Project
 
-## 🚀 Getting Started (Local Development)
+[`backend/`](backend/README.md) is a server-rendered portfolio built with Django 5.2. Class-based views render six pages from Django templates, and a Bootstrap-based front end provides filtering, animations and a lightbox. The contact form stores submissions in SQLite, and they are managed in the Django admin. SEO support includes a sitemap, a database-driven `robots.txt` and structured data on the home page. Security settings cover HTTPS, HSTS and secure cookies.
 
-Follow these steps to run the project on your own machine.
+**Read more:** [`backend/README.md`](backend/README.md)
 
-### Prerequisites
+## The Next.js Project
 
-- Python 3.12 or higher
-- Git
-- Virtual environment (recommended)
+[`frontend/`](frontend/README.md) is a Persian-language, right-to-left portfolio built with Next.js 16, React 19, TypeScript and Tailwind CSS 4. Every route is prerendered, content lives in typed data modules, and the design uses CSS-variable tokens. It includes per-page metadata and JSON-LD, a Content-Security-Policy and other security headers, optimized images and fonts, and Playwright end-to-end tests with accessibility checks. It has no backend and no API.
 
-### 1. Clone the repository
+**Read more:** [`frontend/README.md`](frontend/README.md)
+
+## Screenshots
+
+<!-- TODO: Add screenshots to docs/screenshots/, then uncomment the image lines below and remove the placeholder text. -->
+
+| | Django | Next.js |
+| --- | --- | --- |
+| **Desktop** | <!-- TODO: Django home page, desktop --> <!-- ![Django home page](docs/screenshots/django-home-desktop.png) --> _Screenshot placeholder_ | <!-- TODO: Next.js home page, desktop --> <!-- ![Next.js home page](docs/screenshots/nextjs-home-desktop.png) --> _Screenshot placeholder_ |
+| **Mobile** | <!-- TODO: Django home page, mobile --> <!-- ![Django home page on mobile](docs/screenshots/django-home-mobile.png) --> _Screenshot placeholder_ | <!-- TODO: Next.js home page, mobile --> <!-- ![Next.js home page on mobile](docs/screenshots/nextjs-home-mobile.png) --> _Screenshot placeholder_ |
+
+## Installation Overview
+
+Each project is set up on its own. The commands below are a quick start; the project READMEs contain the complete instructions, including environment variables and troubleshooting notes.
 
 ```bash
-git clone https://github.com/amirhamidi2001/amirhamidi.git
+git clone https://github.com/Amirhamidi2001/amirhamidi.git
 cd amirhamidi
 ```
 
-### 2. Create and activate a virtual environment
+**Django** (requires Python 3.10+). The settings require `SECRET_KEY`, `ALLOWED_HOSTS` and `ADMIN_URL` to be defined, and they force HTTPS, so a local override is needed for plain-HTTP development. Both points are covered in the [backend README](backend/README.md#local-development-setup).
 
 ```bash
-python -m venv venv
-source venv/bin/activate      # On Windows: venv\Scripts\activate
-```
-
-### 3. Install dependencies
-
-```bash
+cd backend
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Set up environment variables
-
-Create a `.env` file in the root directory (same level as `manage.py`) with the following content:
-
-```env
-SECRET_KEY=your-secret-key-here
-DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1
-```
-
-> **Important:** Never commit the `.env` file. For production, set `DEBUG=False` and add your production domain to `ALLOWED_HOSTS`.
-
-### 5. Run migrations
+**Next.js** (requires Node.js 20.9+). No environment variables are required to start.
 
 ```bash
-python manage.py migrate
+cd frontend
+npm ci
+npm run dev
 ```
 
-### 6. Collect static files
+| Project | Detailed setup |
+| --- | --- |
+| Django | [Local development setup](backend/README.md#local-development-setup) · [Environment variables](backend/README.md#environment-variables) |
+| Next.js | [Local development setup](frontend/README.md#local-development-setup) · [Environment variables](frontend/README.md#environment-variables) · [npm scripts](frontend/README.md#available-npm-scripts) |
 
-```bash
-python manage.py collectstatic --noinput
-```
+## Deployment
 
-### 7. Start the development server
+| Project | Platform | Details |
+| --- | --- | --- |
+| Django | [PythonAnywhere](https://www.pythonanywhere.com/) (WSGI) | [Deployment guide](backend/README.md#production-deployment-on-pythonanywhere) |
+| Next.js | [Vercel](https://vercel.com/) | [Build and deployment](frontend/README.md#production-build-and-deployment) |
 
-```bash
-python manage.py runserver
-```
+The two deployments are completely separate: different platforms, different URLs and no shared infrastructure.
 
-Visit `http://127.0.0.1:8000` – you should see the portfolio home page.
+## Author
 
----
+**Amir Hamidi** — Full-Stack Web Developer
 
-## 🔧 Deployment (PythonAnywhere / Production)
+- GitHub: [@Amirhamidi2001](https://github.com/Amirhamidi2001)
+- Portfolio: <https://amirhamidi.vercel.app/>
 
-The site is currently deployed on **PythonAnywhere** (using their WSGI stack). To deploy on a similar platform:
+## License
 
-1. Set `DEBUG=False` in `.env`.
-2. Update `ALLOWED_HOSTS` with your domain.
-3. Use a production database (e.g. PostgreSQL) instead of SQLite.
-4. Configure static file serving (WhiteNoise or a CDN).
-5. Set up HTTPS and security headers (already configured in `settings.py` for production).
-6. Run `python manage.py migrate` and `python manage.py collectstatic` on the server.
-
-Example production‑ready `.env`:
-
-```env
-SECRET_KEY=your-super-secret-key
-DEBUG=False
-ALLOWED_HOSTS=amirhamidi.pythonanywhere.com
-```
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See the [`LICENSE`](LICENSE) file for more information.
-
----
-
-## 👤 Author
-
-**Amir Hamidi** – [GitHub](https://github.com/Amirhamidi2001)
+This project is licensed under the [MIT License](LICENSE).
